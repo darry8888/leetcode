@@ -1,0 +1,39 @@
+14. Longest Common Prefix
+
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string "".
+
+Example 1:
+Input: ["flower","flow","flight"]
+Output: "fl"
+
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+    var prefix = '';
+    var str = '';
+    strs.forEach(s => {
+        if(str.length == 0 || str.length > s.length){
+            str = s;
+        } 
+    });
+    if(strs.length>0){
+        for(let i = str.length; i>0; i--){
+            var strPrefix = str.substring(0,i);
+            var count = 0;
+            strs.forEach(s =>{
+                if(strPrefix == s.substring(0,i)) {
+                    count +=1;
+                }
+            });
+            if(count == strs.length){
+                prefix = strPrefix;
+                break;
+            }
+        }
+        
+    }
+    return prefix;
+};

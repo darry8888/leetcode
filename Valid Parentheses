@@ -1,0 +1,49 @@
+20. Valid Parentheses
+
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+An input string is valid if:
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Note that an empty string is also considered valid.
+
+Example 1:
+Input: "()"
+Output: true
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+    
+    if(!s) return true;
+    // 字串長度為奇數，直接回傳false
+    if(s.length % 2 !== 0) return false;
+    var stack = [];
+    var left = ['(','[','{'];
+    var right = [')',']','}'];
+    var match = {
+        ')':'(',
+        ']':'[',
+        '}':'{'
+    }
+
+    for(var i in s){
+        /**
+         * 判斷s[i]是否有包含在left中
+         * 若有則放入stack中
+         * 若無，再判斷是包含在right中
+         * 若有，stack.pop()，將stack最後一個元素刪除，並回傳該元素
+         * 並判斷是否對應match。
+        */
+        if(left.indexOf(s[i]) > -1){ 
+            stack.push(s[i]);  
+        }else if(right.indexOf(s[i]) > -1){
+            var stackStr = stack.pop();  
+            if(match[s[i]] != stackStr) {
+                return false;
+            }
+        } 
+    }
+    return stack.length == 0;
+};

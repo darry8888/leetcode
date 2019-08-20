@@ -1,0 +1,17 @@
+7. Reverse Integer
+
+Given a 32-bit signed integer, reverse digits of an integer.
+
+Example 1:
+Input: 123
+Output: 321
+
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+    var max = Math.pow(2,31) - 1;
+    var a = parseInt((x.toString()).split("").reverse().join(""));
+    return (a > max ? 0 :( x > 0 ? a : (0 - a) ));
+};

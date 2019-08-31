@@ -17,11 +17,6 @@ Note:
  */
 var sortArrayByParity = function(A) {
     var result = [];
-    //if (A.length < 1 || A.length > 5000) return [];
-    A.forEach(x => {
-        //if(x >= 0 && x<= 5000) {
-            x % 2 ? result.push(x) : result.unshift(x);
-        //}
-    });
+    A.forEach(x => x % 2 ? result.push(x) : result.unshift(x));
     return result;
 };

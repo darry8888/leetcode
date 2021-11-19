@@ -25,3 +25,5 @@ var heightChecker = function(heights) {
     });
     return count;
 };
+
+思維 => 將heights排序，使用迴圈兩兩比對是否相等

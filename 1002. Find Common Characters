@@ -19,7 +19,10 @@ var commonChars = function(A) {
     let minChar = [...A].sort((a, b) => a.length - b.length)[0].split('');
     A.forEach((x, i) => {
         let sp = x.split("");
-        minChar = minChar.filter(char => sp.indexOf(char) > -1 ? sp[sp.indexOf(char)] = 1 : false);
+        minChar = minChar.filter(char => sp.indexOf(char) > -1 ? sp[sp.indexOf(char)] = '1' : false);
     });
     return minChar;
 };
+
+思維 => 將A依長度排序後，取最小長度的字元作為minChar，使用迴圈歷遍A，判斷minChar的字元是有在其中，若有，將字元取代(任何非小寫英文的字元，以免重複時會搜到舊的index),並將他回傳
+ 

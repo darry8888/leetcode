@@ -17,3 +17,5 @@ function findDisappearedNumbers(nums: number[]): number[] {
     nums.forEach((num: number, idx: number, arr: number[]) => !numsSet.has(idx+1) && result.push(idx+1));
     return result;
 };
+
+思維 => 將nums去除重復後另存，透過nums(索引+1)的方式，使用set.has()判斷。

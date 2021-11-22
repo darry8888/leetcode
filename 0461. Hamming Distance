@@ -11,6 +11,6 @@ Explanation:
 The above arrows point to positions where the corresponding bits are different.
 
 function hammingDistance(x: number, y: number): number {
-    const binary = (x ^ y).toString(2).split("").map(i => parseInt(i, 10));
-    return binary.filter(i => i === 1).length;
+    const binary = (x ^ y).toString(2).split('');
+    return binary.filter(i => i === '1').length;
 };
